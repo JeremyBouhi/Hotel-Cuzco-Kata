@@ -4,8 +4,11 @@
   "description": "Kata Hotel Cuzco",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
 }
