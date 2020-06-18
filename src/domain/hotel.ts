@@ -1,17 +1,25 @@
 import { Chambre } from './chambre'
+import { ChambresRepository } from './port/chambres-repository'
 
 export class Hotel {
-    constructor (private chambres: Chambre[]) {
-
+    constructor (private chambresRepository: ChambresRepository) {
     }
 
-    afficherToutesLesChambres():string[]{
-        let affichageDeToutesLesChambres: string[] ;
+    afficherToutesLesChambres(): string[]{
+        let affichageDeToutesLesChambres: string[] = [];
+
         affichageDeToutesLesChambres.push(`| Etage | Chambre | Description | Capacité |`);
         affichageDeToutesLesChambres.push(`|:-----:|:----:|---------------------------------------------------------------------------------------------------------------|:--------------:|`);
-        this.chambres.forEach((chambre)  => {
-            affichageDeToutesLesChambres.push(chambre);
+
+        this.chambresRepository.getToutesLesChambres().forEach((chambre: Chambre) => {
+            affichageDeToutesLesChambres.push([
+                '| ' + chambre.getÉtage(),
+                chambre.getNuméro(),
+                chambre.getDescription(),
+                chambre.getCapacité() + ' guests |',
+                ].join(' | '));
         });
+
         return affichageDeToutesLesChambres;
     }
 }
