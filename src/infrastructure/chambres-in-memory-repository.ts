@@ -1,3 +1,4 @@
+import { Chambre } from '../domain/chambre'
 import { ChambresRepository } from '../domain/port/chambres-repository'
 
 export class ChambresInMemoryRepository implements ChambresRepository{
