@@ -8,8 +8,8 @@ export class Hotel {
     afficherToutesLesChambres(): string[]{
         let affichageDeToutesLesChambres: string[] = [];
 
-        affichageDeToutesLesChambres.push(`| Etage | Chambre | Description | Capacité |`);
-        affichageDeToutesLesChambres.push(`|:-----:|:----:|---------------------------------------------------------------------------------------------------------------|:--------------:|`);
+        affichageDeToutesLesChambres.push(`| Etage | Chambre | Description                                                                         | Capacité |`);
+        affichageDeToutesLesChambres.push(`|:-----:|:-------:|:-----------------------------------------------------------------------------------:|:--------:|`);
 
         this.chambresRepository.getToutesLesChambres().forEach((chambre: Chambre) => {
             affichageDeToutesLesChambres.push([
