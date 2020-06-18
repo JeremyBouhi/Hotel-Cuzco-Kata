@@ -1,6 +1,7 @@
 export class Chambre {
-    readonly étage: number
-    readonly numéro: number
-    readonly description: string
-    readonly capacité: number
+    constructor (private étage: number,
+                 private numéro: number,
+                 private description: string,
+                 private capacité: number) {
+    }
 }

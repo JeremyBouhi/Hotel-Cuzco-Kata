@@ -1,9 +1,10 @@
 import { Chambre } from './chambre'
 
 export class Hotel {
-    readonly chambres: Chambre[]
+    constructor (private chambres: Chambre[]) {
 
-    function afficherToutesLesChambres(){
+    }
 
+    afficherToutesLesChambres(){
     }
 }
