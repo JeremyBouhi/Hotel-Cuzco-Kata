@@ -5,6 +5,13 @@ export class Hotel {
 
     }
 
-    afficherToutesLesChambres(){
+    afficherToutesLesChambres():string[]{
+        let affichageDeToutesLesChambres: string[] ;
+        affichageDeToutesLesChambres.push(`| Etage | Chambre | Description | Capacité |`);
+        affichageDeToutesLesChambres.push(`|:-----:|:----:|---------------------------------------------------------------------------------------------------------------|:--------------:|`);
+        this.chambres.forEach((chambre)  => {
+            affichageDeToutesLesChambres.push(chambre);
+        });
+        return affichageDeToutesLesChambres;
     }
 }

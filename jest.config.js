@@ -12,7 +12,7 @@ module.exports = {
         '^.+\\.ts$': 'ts-jest'
     },
     testMatch: [
-        '<rootDir>/**/?(*.)+(spec|test).ts?(x)'
+        '<rootDir>/test/**/*.test.ts'
     ],
     transformIgnorePatterns: [
         'node_modules/(?!(date-fns)/)'
