@@ -21,4 +21,22 @@ describe('afficherToutesLesChambres', () => {
         // Then
         expect(result).toEqual(affichageDeToutesLesChambres)
     })
+
+    it('verifie l\'accord de guest suivant la capacité', () => {
+            //Given
+            const affichageDeToutesLesChambres: string[] = [`| Etage | Chambre | Description | Capacité |`, `|:-----:|:----:|---------------------------------------------------------------------------------------------------------------|:--------------:|`, `| 1 | 101 | 1 king size bed - A/C - Wi-Fi - private bathroom - wheelchair accessible | 1 guest |`]
+
+
+            const premièreChambre = new Chambre(1, 101, '1 king size bed - A/C - Wi-Fi - private bathroom - wheelchair accessible', 1)
+            const chambresRepository: ChambresRepository = {
+                getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre])
+            }
+            const hotel: Hotel = new Hotel(chambresRepository)
+
+            // When
+            const result = hotel.afficherToutesLesChambres()
+
+            // Then
+            expect(result).toEqual(affichageDeToutesLesChambres)
+        })
 })

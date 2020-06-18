@@ -16,7 +16,7 @@ export class Hotel {
                 '| ' + chambre.getÉtage(),
                 chambre.getNuméro(),
                 chambre.getDescription(),
-                chambre.getCapacité() + ' guests |',
+                chambre.getCapacité() + ' guest' + (chambre.getCapacité() > 1 ? 's':'') + ' |',
                 ].join(' | '));
         });
 
