@@ -1,4 +1,5 @@
 import * as readline from 'readline'
+import { Réservation } from './core/entités/réservation'
 
 import { Guichet } from './core/use-cases/guichet'
 import { Hotel } from './core/use-cases/hotel'
@@ -35,7 +36,8 @@ Tapez 2 si vous souhaitez voir toutes les chambres disponibles pour le(s) voyage
                             parseInt(nombreDeVoyageurs)
                         ))
                         rl.question(`Choisissez un numéro de chambre\n`, (numeroChambre: string) => {
-
+                            const réservation = new Réservation(new Date(checkin), new Date(checkout), parseInt(nombreDeVoyageurs), parseInt(numeroChambre))
+                            guichet.passerUne(réservation)
                         })
                     })
                 })
