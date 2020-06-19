@@ -1,6 +1,7 @@
 import { Chambre } from '../../src/domain/chambre'
 import { Hotel } from '../../src/domain/hotel'
 import { ChambresRepository } from '../../src/domain/port/chambres-repository'
+import { Guichet } from '../../src/domain/guichet'
 
 describe('recupereLesChambresAdequates', () => {
     it('retourne la liste des chambres pouvant accueillir tous les voyageurs', () => {
@@ -13,9 +14,9 @@ describe('recupereLesChambresAdequates', () => {
         const guichet = new Guichet(chambresRepository);
 
         // When
-        const result = guichet.recupereLesChambresAdequates(new Date(2020, 6, 18), new Date(2020, 6, 20), 2);
+        const result = guichet.recupereLesChambresAdequates(new Date(2020, 6, 18), new Date(2020, 6, 20), 4);
 
         // Then
-        expect(result).toEqual([premièreChambre]);
+        expect(result).toEqual([deuxièmeChambre]);
     })
 });
