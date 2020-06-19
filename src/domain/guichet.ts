@@ -6,7 +6,7 @@ export class Guichet {
     }
 
     recupereLesChambresAdequates(checkIn: Date, checkOut: Date, nombreDeVoyageurs: number):Chambre[]{
-        return this.chambresRepository.getToutesLesChambres().filter(chambre => chambre.getCapacité()>= nombreDeVoyageurs);
+        return this.chambresRepository.getToutesLesChambres().filter(chambre => chambre.getCapacité() >= nombreDeVoyageurs);
     }
 
  }

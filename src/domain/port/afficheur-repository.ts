@@ -1,3 +1,3 @@
 export interface AfficheurRepository {
-    execute(data: string[]): void
+    execute(data: any): void
 }

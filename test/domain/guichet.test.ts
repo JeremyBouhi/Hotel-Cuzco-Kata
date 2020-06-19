@@ -1,5 +1,4 @@
 import { Chambre } from '../../src/domain/chambre'
-import { Hotel } from '../../src/domain/hotel'
 import { ChambresRepository } from '../../src/domain/port/chambres-repository'
 import { Guichet } from '../../src/domain/guichet'
 
