@@ -1,9 +1,9 @@
 import { Chambre } from '../core/entités/chambre'
 import { ChambresRepository } from '../core/port/chambres-repository'
 
-export class ChambresInMemoryRepository implements ChambresRepository{
+export class ChambresInMemoryRepository implements ChambresRepository {
 
-    getToutesLesChambres (): Chambre[]{
+    getToutesLesChambres (): Chambre[] {
         return [new Chambre(1, 101, '1 king size bed - A/C - Wi-Fi - private bathroom - wheelchair accessible', 2),
         new Chambre(1, 102, '2 queen size beds - A/C - Wi-Fi - private bathroom - wheelchair accessible', 4),
         new Chambre(1, 103, '3 single beds - A/C - Wi-Fi - private bathroom - wheelchair accessible', 3),

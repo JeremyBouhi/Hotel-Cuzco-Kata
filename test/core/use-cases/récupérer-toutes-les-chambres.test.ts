@@ -1,6 +1,6 @@
-import { Chambre } from '../../src/core/entités/chambre'
-import { Hotel } from '../../src/core/use-cases/hotel'
-import { ChambresRepository } from '../../src/core/port/chambres-repository'
+import { Chambre } from '../../../src/core/entités/chambre'
+import { ChambresRepository } from '../../../src/core/port/chambres-repository'
+import { RécupérerToutesLesChambres } from '../../../src/core/use-cases/récupérer-toutes-les-chambres'
 
 describe('afficherToutesLesChambres', () => {
     it('verifie que les logs d\'affichage sont correctes', () => {
@@ -13,10 +13,10 @@ describe('afficherToutesLesChambres', () => {
             getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre, deuxièmeChambre]),
             récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
-        const hotel: Hotel = new Hotel(chambresRepository)
+        const récupérerToutesLesChambres = new RécupérerToutesLesChambres(chambresRepository)
 
         // When
-        const result = hotel.récupérerToutesLesChambres()
+        const result = récupérerToutesLesChambres.execute()
 
         // Then
         expect(result).toEqual(toutesLesChambres)
@@ -31,10 +31,10 @@ describe('afficherToutesLesChambres', () => {
             getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre]),
             récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
-        const hotel: Hotel = new Hotel(chambresRepository)
+        const récupérerToutesLesChambres = new RécupérerToutesLesChambres(chambresRepository)
 
         // When
-        const result = hotel.récupérerToutesLesChambres()
+        const result = récupérerToutesLesChambres.execute()
 
         // Then
         expect(result).toEqual(toutesLesChambres)

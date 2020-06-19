@@ -1,11 +1,12 @@
 import { Chambre } from '../entités/chambre'
 import { ChambresRepository } from '../port/chambres-repository'
 
-export class Hotel {
-    constructor (private chambresRepository: ChambresRepository) {
+export class RécupérerToutesLesChambres {
+
+    constructor (private readonly chambresRepository: ChambresRepository) {
     }
 
-    récupérerToutesLesChambres(): Chambre[] {
+    execute(): Chambre[] {
         return this.chambresRepository.getToutesLesChambres()
     }
 }
