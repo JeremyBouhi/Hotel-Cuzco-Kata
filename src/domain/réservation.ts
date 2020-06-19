@@ -10,4 +10,5 @@ export class Réservation {
     getAuMoinsUneNuit(): boolean {
         return this.checkIn < this.checkOut
     }
+
 }
