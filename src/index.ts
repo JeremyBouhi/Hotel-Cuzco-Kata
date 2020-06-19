@@ -32,6 +32,9 @@ Tapez 2 si vous souhaitez voir toutes les chambres disponibles pour le(s) voyage
                             new Date(checkout),
                             parseInt(nombreDeVoyageurs)
                         ))
+                        rl.question(`Choisissez un numéro de chambre\n`, (numeroChambre: string) => {
+
+                        }
                     })
                 })
             })
