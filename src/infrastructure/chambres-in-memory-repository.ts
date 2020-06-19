@@ -17,4 +17,8 @@ export class ChambresInMemoryRepository implements ChambresRepository{
         new Chambre(3, 303, '3 single beds - A/C - shared bathroom', 3),
         new Chambre(3, 304, '2 single beds - shared bathroom', 2)]
     }
+
+    récupérerLesChambresAvecLaBonneCapacité (nombreDeVoyageurs: number): Chambre[] {
+        return this.getToutesLesChambres().filter(chambre => chambre.getCapacité() >= nombreDeVoyageurs)
+    }
 }

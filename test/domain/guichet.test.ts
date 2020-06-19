@@ -15,21 +15,25 @@ describe(`Guichet | Tests`, ()=> {
         premièreChambre = new Chambre(1, 101, '1 king size bed - A/C - Wi-Fi - private bathroom - wheelchair accessible', 2)
         deuxièmeChambre = new Chambre(1, 102, '2 queen size beds - A/C - Wi-Fi - private bathroom - wheelchair accessible', 4)
         chambresRepository = {
-              getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre, deuxièmeChambre])
+            getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre, deuxièmeChambre]),
+            récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
         réservationRepository = {
-                        enregistrerRéservation: jest.fn()
+            enregistrerRéservation: jest.fn()
         }
         guichet = new Guichet(chambresRepository, réservationRepository);
 
     });
     describe('recupereLesChambresAdequates', () => {
-        it('retourne la liste des chambres pouvant accueillir tous les voyageurs', () => {
+        it('vérifie que chambres-repository est appelé avec les bons paramètres', () => {
+            // Given
+            const nombredeVoyageurs = 4
+
             // When
-            const result = guichet.recupereLesChambresAdequates(new Date(2020, 6, 18), new Date(2020, 6, 20), 4);
+            guichet.récupererLesChambresAdéquates(nombredeVoyageurs);
 
             // Then
-            expect(result).toEqual([deuxièmeChambre]);
+            expect(chambresRepository.récupérerLesChambresAvecLaBonneCapacité).toHaveBeenCalledWith(nombredeVoyageurs)
         })
     });
 
@@ -43,7 +47,7 @@ describe(`Guichet | Tests`, ()=> {
             const réservation = new Réservation(checkIn, checkOut, nombreDeVoyageurs, numéroDeChambre);
 
             //when
-            guichet.passerUneRéservation(réservation);
+            guichet.passerUne(réservation);
 
             //then
             expect(réservationRepository.enregistrerRéservation).toHaveBeenCalledWith(réservation);
