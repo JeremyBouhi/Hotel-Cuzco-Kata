@@ -1,4 +1,4 @@
-import { Réservation } from '../../src/domain/réservation'
+import { Réservation } from '../../src/core/entités/réservation'
 
 describe('verifie que la réservation dure au moins 1 nuit', () => {
     it('retourne true si la réservation dure au moins une nuit', () => {

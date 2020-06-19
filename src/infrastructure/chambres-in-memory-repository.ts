@@ -1,5 +1,5 @@
-import { Chambre } from '../domain/chambre'
-import { ChambresRepository } from '../domain/port/chambres-repository'
+import { Chambre } from '../core/entités/chambre'
+import { ChambresRepository } from '../core/port/chambres-repository'
 
 export class ChambresInMemoryRepository implements ChambresRepository{
 

@@ -1,8 +1,8 @@
-import { Chambre } from '../../src/domain/chambre'
-import { Réservation } from '../../src/domain/réservation'
-import { ChambresRepository } from '../../src/domain/port/chambres-repository'
-import { RéservationRepository } from '../../src/domain/port/réservation-repository'
-import { Guichet } from '../../src/domain/guichet'
+import { Chambre } from '../../src/core/entités/chambre'
+import { Réservation } from '../../src/core/entités/réservation'
+import { ChambresRepository } from '../../src/core/port/chambres-repository'
+import { RéservationRepository } from '../../src/core/port/réservation-repository'
+import { Guichet } from '../../src/core/use-cases/guichet'
 
 describe(`Guichet | Tests`, ()=> {
     let guichet:Guichet;
@@ -30,7 +30,7 @@ describe(`Guichet | Tests`, ()=> {
             const nombredeVoyageurs = 4
 
             // When
-            guichet.récupererLesChambresAdéquates(nombredeVoyageurs);
+            guichet.récupererLesChambresAdéquates(new Date(), new Date(), nombredeVoyageurs);
 
             // Then
             expect(chambresRepository.récupérerLesChambresAvecLaBonneCapacité).toHaveBeenCalledWith(nombredeVoyageurs)
@@ -47,6 +47,7 @@ describe(`Guichet | Tests`, ()=> {
             const réservation = new Réservation(checkIn, checkOut, nombreDeVoyageurs, numéroDeChambre);
 
             //when
+            // @ts-ignore
             guichet.passerUne(réservation);
 
             //then

@@ -1,7 +1,7 @@
-import { Chambre } from './chambre'
-import { Réservation } from './réservation'
-import { ChambresRepository } from './port/chambres-repository'
-import { RéservationRepository } from './port/réservation-repository'
+import { Chambre } from '../entités/chambre'
+import { Réservation } from '../entités/réservation'
+import { ChambresRepository } from '../port/chambres-repository'
+import { RéservationRepository } from '../port/réservation-repository'
 
 export class Guichet {
     constructor (private chambresRepository: ChambresRepository,

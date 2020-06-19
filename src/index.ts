@@ -1,7 +1,7 @@
 import * as readline from 'readline'
 
-import { Guichet } from './domain/guichet'
-import { Hotel } from './domain/hotel'
+import { Guichet } from './core/use-cases/guichet'
+import { Hotel } from './core/use-cases/hotel'
 import { AfficheurRepositoryImpl } from './application/afficheur-repository-impl'
 import { ChambresInMemoryRepository } from './infrastructure/chambres-in-memory-repository'
 import { RéservationRepositoryImpl } from './infrastructure/réservation-repository-impl'

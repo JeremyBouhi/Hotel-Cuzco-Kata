@@ -1,4 +1,4 @@
-import { Chambre } from '../../src/domain/chambre'
+import { Chambre } from '../../src/core/entités/chambre'
 import { ChambresInMemoryRepository } from '../../src/infrastructure/chambres-in-memory-repository'
 
 describe('recupereLesChambresAdequates', () => {

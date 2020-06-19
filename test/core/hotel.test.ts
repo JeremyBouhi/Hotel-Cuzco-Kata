@@ -1,6 +1,6 @@
-import { Chambre } from '../../src/domain/chambre'
-import { Hotel } from '../../src/domain/hotel'
-import { ChambresRepository } from '../../src/domain/port/chambres-repository'
+import { Chambre } from '../../src/core/entités/chambre'
+import { Hotel } from '../../src/core/use-cases/hotel'
+import { ChambresRepository } from '../../src/core/port/chambres-repository'
 
 describe('afficherToutesLesChambres', () => {
     it('verifie que les logs d\'affichage sont correctes', () => {
@@ -10,7 +10,8 @@ describe('afficherToutesLesChambres', () => {
         const toutesLesChambres: Chambre[] = [premièreChambre, deuxièmeChambre]
 
         const chambresRepository: ChambresRepository = {
-            getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre, deuxièmeChambre])
+            getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre, deuxièmeChambre]),
+            récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
         const hotel: Hotel = new Hotel(chambresRepository)
 
@@ -27,7 +28,8 @@ describe('afficherToutesLesChambres', () => {
         const toutesLesChambres: Chambre[] = [premièreChambre]
 
         const chambresRepository: ChambresRepository = {
-            getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre])
+            getToutesLesChambres: jest.fn().mockReturnValue([premièreChambre]),
+            récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
         const hotel: Hotel = new Hotel(chambresRepository)
 
