@@ -1,8 +1,8 @@
 import { RéservationRepository } from '../core/port/réservation-repository'
-import { Réservation } from '../core/réservation'
+import { Réservation } from '../core/entités/réservation'
 
 export class RéservationRepositoryImpl implements RéservationRepository {
-    enregistrerRéservation(réservation: Réservation):void {
+    enregistrer(réservation: Réservation):void {
 
     }
 }

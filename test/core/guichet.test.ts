@@ -19,7 +19,7 @@ describe(`Guichet | Tests`, ()=> {
             récupérerLesChambresAvecLaBonneCapacité: jest.fn()
         }
         réservationRepository = {
-            enregistrerRéservation: jest.fn()
+            enregistrer: jest.fn()
         }
         guichet = new Guichet(chambresRepository, réservationRepository);
 
@@ -51,7 +51,7 @@ describe(`Guichet | Tests`, ()=> {
             guichet.passerUne(réservation);
 
             //then
-            expect(réservationRepository.enregistrerRéservation).toHaveBeenCalledWith(réservation);
+            expect(réservationRepository.enregistrer).toHaveBeenCalledWith(réservation);
         });
     });
 });

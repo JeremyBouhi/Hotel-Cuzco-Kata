@@ -13,6 +13,6 @@ export class Guichet {
     }
 
     passerUne(réservation: Réservation): void {
-        this.réservationRepository.enregistrerRéservation(réservation)
+        this.réservationRepository.enregistrer(réservation)
     }
  }
